@@ -1,0 +1,35 @@
+
+<div class="appcontainer">
+
+    <div class="float-container">
+
+        <div class="float-child">
+          <div class="logo">One Portal<span class="line-separator"></span>Referral System</div>
+        </div>
+        
+        <div class="float-child2" [matMenuTriggerFor]="menu">
+          <div class="login"><mat-icon class="icon" aria-hidden="false" aria-label="login" fontIcon="person"></mat-icon>&nbsp;Login</div>
+        </div>
+        
+      </div>
+
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="footer">
+        <h5><div class="footer-content">© Copyright 2023. All Rights Reserved.</div></h5>
+    </div>
+
+    <mat-menu #menu="matMenu">
+        
+        <button mat-menu-item>
+          <mat-icon>manage_accounts</mat-icon>
+          <span>Account Settings</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>logout</mat-icon>
+          <span>Log Out</span>
+        </button>
+      </mat-menu>
+
+</div>

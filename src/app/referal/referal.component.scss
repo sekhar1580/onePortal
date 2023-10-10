@@ -1,0 +1,48 @@
+
+.container {
+    padding: 30px;
+}
+
+.fields {
+    padding: 5px;
+}
+
+.label {
+    padding: 5px;
+}
+
+.input-field {
+    position: absolute;
+    left: 200px;
+}
+
+.profile-form {
+    height: 485px;
+}
+
+.submit-btn{
+    display: inline-block;
+}
+.reset-btn{
+    display: inline-block;
+}
+
+::ng-deep .mat-form-field.mat-focused {
+    .mat-form-field-label {
+        color: #ff884d;
+    }
+    .mat-form-field-ripple {
+        background-color: #ff884d;
+    }
+    .mat-form-field-required-marker {
+        color: #ff884d;
+    }
+    .mat-input-element {
+        color: #ff884d;
+    }
+
+    .mat-mdc-text-field-wrapper {
+        height: 30px;
+    }
+
+}
