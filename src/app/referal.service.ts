@@ -11,8 +11,8 @@ export class ReferalService {
 
   constructor(private http: HttpClient) { }
 
-  getResponse() {
-    return this.http.get<string>(this.configUrl);
+  getResponse(payload : any) {
+    return this.http.post<string>(this.configUrl, payload);
   }
 
 

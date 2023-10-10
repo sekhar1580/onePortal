@@ -38,32 +38,6 @@ export class ReferalComponent implements OnInit {
 
   result = "";
 
-  account_validation_messages = {
-    'firstName': [
-      { type: 'required', message: 'Username is required' },
-      { type: 'minlength', message: 'Username must be at least 5 characters long' },
-      { type: 'maxlength', message: 'Username cannot be more than 25 characters long' },
-      { type: 'pattern', message: 'Your username must contain only numbers and letters' },
-      { type: 'validUsername', message: 'Your username has already been taken' }
-    ],
-    'email': [
-      { type: 'required', message: 'Email is required' },
-      { type: 'pattern', message: 'Enter a valid email' }
-    ],
-    'confirm_password': [
-      { type: 'required', message: 'Confirm password is required' },
-      { type: 'areEqual', message: 'Password mismatch' }
-    ],
-    'password': [
-      { type: 'required', message: 'Password is required' },
-      { type: 'minlength', message: 'Password must be at least 5 characters long' },
-      { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number' }
-    ],
-    'terms': [
-      { type: 'pattern', message: 'You must accept terms and conditions' }
-    ]
-    }
-
   constructor(private referalService: ReferalService, public dialog: MatDialog) {  }
 
   ngOnInit() {
@@ -95,7 +69,16 @@ export class ReferalComponent implements OnInit {
     console.log(this.profileForm.controls.fNumber.value);
     console.log(this.profileForm.controls.fName.value);
     console.log(this.profileForm.controls.requirement.value);
-    this.referalService.getResponse().subscribe(x => {
+
+    let payload = {
+      "Customer_Name__c": this.profileForm.controls.firstName.value,
+      "Requirement_Id__c": "a025g00000HLJaDAAX",
+      "Products_Services_Sold__c": this.profileForm.controls.productSold.value,
+      "Revenue_Generated__c": this.profileForm.controls.revenueGenerated.value
+    }
+
+    this.referalService.getResponse(payload).subscribe(x => {
+      
       this.result = JSON.stringify(x);
       this.openDialog();
     });
